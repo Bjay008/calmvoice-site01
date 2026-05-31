@@ -1,4 +1,7 @@
- import express from "express";
+js
+    import express from "express";
+    import path from "path";
+    import { fileURLToPath } from "url";
     import cors from "cors";
     import { Resend } from "resend";
 
@@ -8,6 +11,16 @@
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const audienceId = process.env.RESEND_AUDIENCE_ID;
+
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const publicDir = path.join(__dirname, "../public");
+
+    app.use(express.static(publicDir));
+
+    app.get("/", (_req, res) => {
+      res.sendFile(path.join(publicDir, "index.html"));
+    });
 
     app.get("/health", (_req, res) => {
       res.status(200).json({ ok: true });
@@ -39,12 +52,7 @@
       }
     });
 
-       const port = process.env.PORT || 3000;
-       app.listen(port, () => {
-       console.log(`API listening on ${port}`);
-    });
-    app.use(express.static("public"));
-
-    app.get("/", (_req, res) => {
-      res.sendFile(new URL("../public/index.html", import.meta.url).pathname);
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+      console.log(API listening on ${port});
     });

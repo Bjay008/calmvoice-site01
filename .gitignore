@@ -1,0 +1,6 @@
+.env
+.env
+.env.*
+node_modules/
+test-resend.mjs
+2e2

@@ -1,63 +1,31 @@
-html
-    <!doctype html>
+<!doctype html>
     <html lang="en">
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <title>CalmVoice Parenting | Gentle scripts for hard moments</title>
-      <meta name="description" content="CalmVoice Parenting gives you short, practical scripts to stay calm, connected, and effective with your child—even in stressful moments." />
+      <meta name="description" content="CalmVoice Parenting gives you short, practical scripts to stay calm, connected, and effective with your child." />
       <style>
         :root{
-          --bg:#f7faf9;
-          --text:#1f2937;
-          --muted:#6b7280;
-          --brand:#0ea5a4;
-          --brand-dark:#0b7f7e;
-          --card:#ffffff;
-          --line:#e5e7eb;
+          --bg:#f7faf9; --text:#1f2937; --muted:#6b7280; --brand:#0ea5a4; --brand-dark:#0b7f7e; --card:#fff; --line:#e5e7eb;
         }
         *{box-sizing:border-box}
-        body{
-          margin:0;
-          font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-          color:var(--text);
-          background:var(--bg);
-          line-height:1.6;
-        }
+        body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
         .wrap{max-width:980px;margin:0 auto;padding:24px}
-        .hero{
-          background:linear-gradient(180deg,#ecfeff 0%,#f7faf9 70%);
-          border:1px solid var(--line);
-          border-radius:20px;
-          padding:40px 28px;
-          margin-top:12px;
-        }
+        .tag{display:inline-block;background:#ecfeff;color:#0f766e;padding:4px 10px;border-radius:999px;font-size:.82rem}
+        .hero{background:linear-gradient(180deg,#ecfeff 0%,#f7faf9 70%);border:1px solid var(--line);border-radius:20px;padding:40px 28px;margin-top:12px}
         h1{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:.2rem 0 1rem}
-        p.lead{font-size:1.1rem;color:#374151;max-width:720px}
+        .lead{font-size:1.1rem;color:#374151;max-width:720px}
         .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-        .btn{
-          display:inline-block;text-decoration:none;
-          padding:12px 18px;border-radius:12px;font-weight:600
-        }
+        .btn{display:inline-block;text-decoration:none;padding:12px 18px;border-radius:12px;font-weight:600;border:none;cursor:pointer}
         .btn-primary{background:var(--brand);color:#fff}
         .btn-primary:hover{background:var(--brand-dark)}
         .btn-secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
-        .grid{
-          display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-          gap:14px;margin:26px 0;
-        }
-        .card{
-          background:var(--card);border:1px solid var(--line);
-          border-radius:14px;padding:16px;
-        }
-        .quote{
-          background:#fff;border-left:4px solid var(--brand);
-          padding:16px;border-radius:10px;margin:24px 0;
-        }
-        .footer{
-          color:var(--muted);font-size:.92rem;padding:20px 0 8px
-        }
-        .tag{display:inline-block;background:#ecfeff;color:#0f766e;padding:4px 10px;border-radius:999px;font-size:.85rem;font-weight:600}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}
+        .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+        .quote{background:#fff;border-left:4px solid var(--brand);padding:16px;border-radius:10px;margin:24px 0}
+        input{width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px}
+        .footer{color:var(--muted);font-size:.92rem;padding:20px 0 8px}
       </style>
     </head>
     <body>
@@ -69,11 +37,11 @@ html
         <section class="hero">
           <h1>Stay calm in hard parenting moments.</h1>
           <p class="lead">
-            Practical scripts you can use in real time—tantrums, defiance, bedtime battles, sibling conflict—so you can lead with calm and connection.
+            Practical scripts you can use in real time—tantrums, defiance, bedtime battles, sibling conflict—so you can respond with confidence.
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="https://youtube.com/@CalmVoiceParenting" target="_blank" rel="noopener">Watch on YouTube</a>
-            <a class="btn btn-secondary" href="mailto:hello@graywolf.fun?subject=CalmVoice%20Parenting%20Updates">Join Updates</a>
+            <a class="btn btn-secondary" href="mailto:hello@graywolf.fun?subject=CalmVoice%20Parenting%20Updates">Join by Email</a>
           </div>
         </section>
 
@@ -97,14 +65,55 @@ html
         </section>
 
         <section class="card">
-          <h3>Start here</h3>
-          <p>Subscribe to <strong>@CalmVoiceParenting</strong> for weekly short lessons and real-life scripts.</p>
-          <p><a class="btn btn-primary" href="https://youtube.com/@CalmVoiceParenting" target="_blank" rel="noopener">Open Channel</a></p>
+          <h3>Get the free Calm Phrases PDF</h3>
+          <p>Enter your details and we’ll send your starter phrases.</p>
+
+          <form id="lead-form">
+            <p><label for="firstName">First name</label><br><input id="firstName" name="firstName" type="text" required></p>
+            <p><label for="email">Email</label><br><input id="email" name="email" type="email" required></p>
+            <button class="btn btn-primary" type="submit">Send me the PDF</button>
+            <p id="form-message"></p>
+          </form>
         </section>
 
         <footer class="footer">
           © 2026 CalmVoice Parenting · Built with care on graywolf.fun
         </footer>
       </div>
+
+      <script>
+        const form = document.getElementById("lead-form");
+        const msg = document.getElementById("form-message");
+
+        form?.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const firstName = document.getElementById("firstName")?.value?.trim() || "";
+          const email = document.getElementById("email")?.value?.trim() || "";
+
+          msg.textContent = "Submitting...";
+          msg.style.color = "#6b7280";
+
+          try {
+            const res = await fetch("/subscribe", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ firstName, email })
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.ok) {
+              window.location.href = "/thank-you.html";
+            } else {
+              msg.textContent = "Something went wrong. Please try again.";
+              msg.style.color = "#b91c1c";
+            }
+          } catch {
+            msg.textContent = "Network error. Please try again.";
+            msg.style.color = "#b91c1c";
+          }
+        });
+      </script>
     </body>
     </html>
