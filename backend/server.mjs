@@ -1,4 +1,3 @@
-js
     import express from "express";
     import path from "path";
     import { fileURLToPath } from "url";
@@ -42,9 +41,7 @@ js
           unsubscribed: false,
         });
 
-        if (error) {
-          return res.status(400).json({ ok: false, error });
-        }
+        if (error) return res.status(400).json({ ok: false, error });
 
         return res.status(200).json({ ok: true, contact: data });
       } catch (err) {
@@ -54,5 +51,6 @@ js
 
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
-      console.log(API listening on ${port});
+    console.log(`API listening on ${port}`);
     });
+
