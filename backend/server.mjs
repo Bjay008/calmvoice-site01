@@ -71,13 +71,6 @@
       }
     });
 
-        if (error) return res.status(400).json({ ok: false, error });
-
-        return res.status(200).json({ ok: true, contact: data });
-      } catch (err) {
-        return res.status(500).json({ ok: false, error: err.message });
-      }
-    });
 
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
