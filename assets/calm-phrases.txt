@@ -1,0 +1,26 @@
+    CalmVoice Parenting — 20 Calm Phrases
+
+    1. I'm here. You're safe.
+    2. Let's take one breath together.
+    3. I can see this is really hard right now.
+    4. I won't let you hurt me or anyone else.
+    5. I'll help you through this.
+    6. You can be upset and still be respectful.
+    7. Let's slow this down.
+    8. Try again with a calmer voice.
+    9. I'm listening.
+    10. We can solve this together.
+    11. First calm, then talk.
+    12. You don't have to do this alone.
+    13. I know you're frustrated.
+    14. Let's choose a better way.
+    15. I believe you can handle this.
+    16. I won't argue while we're both upset.
+    17. When you're ready, I'm ready.
+    18. We can fix this.
+    19. Mistakes are okay; we repair.
+    20. I love you, even when this is hard.
+    EOF
+
+
+ls -l assets/calm-phrases.txt
