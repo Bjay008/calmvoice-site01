@@ -46,7 +46,7 @@
         }
 
         const { data: emailData, error: emailError } = await resend.emails.send({
-          from: "CalmVoice Parenting <hello@graywolf.fun>",
+          from: "CalmVoice Parenting <hello@success.graywolf.fun>",
           to: [email],
           subject: "Your Calm Phrases PDF is here",
           html: `
