@@ -3,6 +3,7 @@
     import { fileURLToPath } from "url";
     import cors from "cors";
     import { Resend } from "resend";
+import rateLimit from "express-rate-limit";
 
     const app = express();
     app.use(express.json());
@@ -10,6 +11,14 @@
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const audienceId = process.env.RESEND_AUDIENCE_ID;
+    const subscribeLimiter = rateLimit({
+      windowMs: 15 * 60 * 1000,
+      max: 10,
+      standardHeaders: true,
+      legacyHeaders: false,
+      message: { ok: false, error: "Too many signup attempts. Please try again later." },
+    });
+    
 
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
@@ -25,7 +34,7 @@
       res.status(200).json({ ok: true });
     });
 
-     app.post("/subscribe", async (req, res) => {
+     app.post("/subscribe", subscribeLimiter, async (req, res) => {
       try {
         const { email, firstName = "", lastName = "" } = req.body || {};
 
